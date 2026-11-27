@@ -82,26 +82,6 @@ pipeline {
                 <p>Hello QA Team,</p>
 
                 <p>Selenium automation execution completed successfully.</p>
-                
-                 <h2>Test Automation Execution Report</h2>
-
-        <p>Build Status: ${currentBuild.currentResult}</p>
-
-        <p>Build Number: ${env.BUILD_NUMBER}</p>
-
-        <h3>Test Execution Summary</h3>
-
-<<<<<<< HEAD
-=======
-        //${TEST_COUNTS}
-
->>>>>>> e15785827df827a5229b5ec49af7b5dc74d1af4c
-        <p>
-            <a href="${env.BUILD_URL}testReport/">
-                Click here to view complete TestNG results
-            </a>
-        </p>
-
                 <table border="1" cellpadding="5">
                     <tr>
                         <td>Project</td>
