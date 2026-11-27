@@ -14,6 +14,9 @@ pipeline {
         buildDiscarder(logRotator(numToKeepStr: '2'))
     }
     
+    triggers {
+    cron('2 * * * *')
+}
     //4. Define pipeline stages
     stages {
         //Stage 1: Checkout source code
