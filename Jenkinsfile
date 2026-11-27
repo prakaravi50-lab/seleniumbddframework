@@ -91,7 +91,7 @@ pipeline {
 
         <h3>Test Execution Summary</h3>
 
-        ${TEST_COUNTS}
+        //${TEST_COUNTS}
 
         <p>
             <a href="${env.BUILD_URL}testReport/">
