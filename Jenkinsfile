@@ -1,6 +1,11 @@
 pipeline {
     //1.Select Jenkins Agent
     agent any
+
+     triggers {
+    //cron('* * * * *')
+     pollSCM('H/2 * * * *')
+}
     
     //2.Configure java ana maven
    /* tools{
@@ -13,11 +18,6 @@ pipeline {
         timeout(time:30, unit: 'MINUTES')
         buildDiscarder(logRotator(numToKeepStr: '2'))
     }
-    
-    triggers {
-    //cron('* * * * *')
-     pollSCM('H/5 * * * *')
-}
     //4. Define pipeline stages
     stages {
         //Stage 1: Checkout source code
