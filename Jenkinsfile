@@ -15,7 +15,7 @@ pipeline {
     }
     
     triggers {
-    cron('* 1 * * *')
+    cron('* * * * *')
 }
     //4. Define pipeline stages
     stages {
