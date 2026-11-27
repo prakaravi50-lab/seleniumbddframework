@@ -89,6 +89,9 @@ public class LoginPageStep {
 		if(driver!=null)
 		{
 			 driver.quit();
+		}else
+		{
+			System.out.println("Driver instance still in open sate"+driver);
 		}
 	   
 	    System.out.println("Browser Closed");
