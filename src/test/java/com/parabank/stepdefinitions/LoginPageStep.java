@@ -86,7 +86,11 @@ public class LoginPageStep {
 	 */
 	@And("close the chrome browser")
 	public void close_the_chrome_browser() {
-	    driver.close();
+		if(driver!=null)
+		{
+			 driver.quit();
+		}
+	   
 	    System.out.println("Browser Closed");
 	}
 
