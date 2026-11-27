@@ -72,10 +72,100 @@ pipeline {
          }
           success {
             echo 'SUCCESS: Automation pipeline passed'
+            emailext(
+            to: 'prakaravi50@gmail.com',
+            subject: "SUCCESS: ${env.JOB_NAME} - Build #${env.BUILD_NUMBER}",
+            mimeType: 'text/html',
+            body: """
+                <h2 style="color:green;">Automation Pipeline SUCCESS</h2>
+
+                <p>Hello QA Team,</p>
+
+                <p>Selenium automation execution completed successfully.</p>
+                
+                 <h2>Test Automation Execution Report</h2>
+
+        <p>Build Status: ${currentBuild.currentResult}</p>
+
+        <p>Build Number: ${env.BUILD_NUMBER}</p>
+
+        <h3>Test Execution Summary</h3>
+
+        ${TEST_COUNTS}
+
+        <p>
+            <a href="${env.BUILD_URL}testReport/">
+                Click here to view complete TestNG results
+            </a>
+        </p>
+
+                <table border="1" cellpadding="5">
+                    <tr>
+                        <td>Project</td>
+                        <td>${env.JOB_NAME}</td>
+                    </tr>
+                    <tr>
+                        <td>Build Number</td>
+                        <td>${env.BUILD_NUMBER}</td>
+                    </tr>
+                    <tr>
+                        <td>Build Status</td>
+                        <td>SUCCESS</td>
+                    </tr>
+                    <tr>
+                        <td>Build URL</td>
+                        <td><a href="${env.BUILD_URL}">View Build</a></td>
+                    </tr>
+                </table>
+
+                <p>Regards,<br>Jenkins CI/CD</p>
+            """
+        )
         }
 
         failure {
             echo 'FAILURE: Automation pipeline failed'
+            emailext(
+            to: 'prakaravi50@gmail.com',
+            subject: "FAILURE: ${env.JOB_NAME} - Build #${env.BUILD_NUMBER}",
+            mimeType: 'text/html',
+            body: """
+                <h2 style="color:red;">Automation Pipeline FAILED</h2>
+
+                <p>Hello QA Team,</p>
+
+                <p>Selenium automation execution has failed.</p>
+
+                <table border="1" cellpadding="5">
+                    <tr>
+                        <td>Project</td>
+                        <td>${env.JOB_NAME}</td>
+                    </tr>
+                    <tr>
+                        <td>Build Number</td>
+                        <td>${env.BUILD_NUMBER}</td>
+                    </tr>
+                    <tr>
+                        <td>Build Status</td>
+                        <td>FAILURE</td>
+                    </tr>
+                    <tr>
+                        <td>Build URL</td>
+                        <td><a href="${env.BUILD_URL}">View Build</a></td>
+                    </tr>
+                    <tr>
+                        <td>Test Report</td>
+                        <td><a href="${env.BUILD_URL}testReport/">
+                            View Test Results
+                        </a></td>
+                    </tr>
+                </table>
+
+                <p>Please investigate the failed test cases.</p>
+
+                <p>Regards,<br>Jenkins CI/CD</p>
+            """
+        )
         }
 
         aborted {
