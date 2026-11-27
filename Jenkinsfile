@@ -4,7 +4,7 @@ pipeline {
 
      triggers {
     //cron('* * * * *')
-     pollSCM('H/2 * * * *')
+     pollSCM('* * * * *')
 }
     
     //2.Configure java ana maven
