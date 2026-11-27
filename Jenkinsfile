@@ -3,15 +3,15 @@ pipeline {
     agent any
     
     //2.Configure java ana maven
-    tools{
+   /* tools{
         jdk 'JDK21'
         maven 'Maven-3.9.16'
-    }
+    }*/
     //3.Pipeline configuration
     options{
         timestamps()
         timeout(time:30, unit: 'MINUTES')
-        buildDiscarder(logRotator(numToKeepStr: '10'))
+        buildDiscarder(logRotator(numToKeepStr: '2'))
     }
     
     //4. Define pipeline stages
@@ -44,7 +44,7 @@ pipeline {
         {
             steps{
                 echo 'Executing Selenium TestNG Test'
-                bar 'mvn test'
+                bat 'mvn test'
             
             }
         }
