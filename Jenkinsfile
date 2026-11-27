@@ -91,6 +91,11 @@ pipeline {
 
         <h3>Test Execution Summary</h3>
 
+<<<<<<< HEAD
+=======
+        //${TEST_COUNTS}
+
+>>>>>>> e15785827df827a5229b5ec49af7b5dc74d1af4c
         <p>
             <a href="${env.BUILD_URL}testReport/">
                 Click here to view complete TestNG results
