@@ -30,8 +30,8 @@ pipeline {
         //Stage 2: Verify java and maven
         stage('Environment Setup'){
             steps{
-                bat 'java -versi'
-                bat 'mvn -versi'
+                bat 'java -version'
+                bat 'mvn -version'
             }
         }
         //Stage 3: Compile project
