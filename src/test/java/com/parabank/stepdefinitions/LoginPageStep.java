@@ -18,10 +18,11 @@ public class LoginPageStep {
 	ChromeOptions option;
 	@Given("to launch the parabank application url in chrome browser")
 	public void to_launch_the_parabank_application_url_in_chrome_browser() {
-		option = new ChromeOptions();
-		option.addArguments("--headless=new");
+		//option = new ChromeOptions();
+		//option.addArguments("--headless=new");
+		//Headless mode commented
 		System.setProperty("webdriver.chrome.driver","./src/test/resources/drivers/chromedriver.exe");
-		driver = new ChromeDriver(option);
+		driver = new ChromeDriver();
 		driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(5));
 		driver.manage().window().maximize();
 		driver.get("https://parabank.parasoft.com/parabank/index.htm");
