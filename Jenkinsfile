@@ -3,9 +3,8 @@ pipeline {
     agent any
 
      triggers {
-    //cron('* * * * *')
-     pollSCM('* * * * *')
-}
+        pollSCM('H/5 * * * *')
+    }
     
     //2.Configure java ana maven
    /* tools{
